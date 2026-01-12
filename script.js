@@ -452,4 +452,220 @@ console.log('%c✨ Passionnée par l\'innovation technologique et l\'automatisat
 console.log('%c📧 Contact: ramoskeke16@gmail.com', 'color: #00F5A0; font-size: 12px;');
 console.log('%c🔗 GitHub: https://github.com/Rameaux13', 'color: #00F5A0; font-size: 12px;');
 
+// === DARK MODE TOGGLE ===
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const html = document.documentElement;
+
+// Fonction pour appliquer le thème
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        html.removeAttribute('data-theme');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+}
+
+// Charger le thème sauvegardé ou détecter la préférence système
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme) {
+    applyTheme(savedTheme);
+} else if (prefersDark) {
+    applyTheme('dark');
+    localStorage.setItem('theme', 'dark');
+}
+
+// Toggle du thème au clic
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Animation du bouton
+        themeToggle.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            themeToggle.style.transform = 'scale(1)';
+        }, 200);
+    });
+}
+
+// Détecter les changements de préférence système
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+    }
+});
+
+// === TUTORIAL INTERACTIF ===
+const tutorialSteps = [
+    {
+        icon: 'fa-hand',
+        title: 'Bienvenue sur mon Portfolio!',
+        description: 'Salut! Moi c\'est Keke Axelle, développeuse Full Stack passionnée. Laisse-moi te faire découvrir mon univers en quelques étapes!',
+        target: null
+    },
+    {
+        icon: 'fa-user-circle',
+        title: 'Découvre mon parcours',
+        description: 'Ici tu trouveras tout sur moi : mon double ADN électronique + développement, mes valeurs et ce qui me passionne vraiment!',
+        target: '#apropos'
+    },
+    {
+        icon: 'fa-trophy',
+        title: 'Mes accomplissements',
+        description: 'WorldSkills, CDC-CI Capital x HEC Paris, et mes certifications... Je suis fière de partager mes réussites avec toi!',
+        target: '#accomplissements'
+    },
+    {
+        icon: 'fa-rocket',
+        title: 'Mes projets innovants',
+        description: 'Du web au desktop, de l\'électronique à l\'IoT... Découvre mes créations et mes solutions complètes!',
+        target: '#projets'
+    },
+    {
+        icon: 'fa-moon',
+        title: 'Astuce : Mode sombre',
+        description: 'Pssst... Tu vois le bouton en bas à droite? Clique dessus pour activer le mode sombre. Ton portfolio, ton style!',
+        target: '#themeToggle'
+    }
+];
+
+let currentTutorialStep = 0;
+
+const tutorialOverlay = document.getElementById('tutorialOverlay');
+const tutorialCard = document.getElementById('tutorialCard');
+const tutorialSpotlight = document.getElementById('tutorialSpotlight');
+const tutorialIcon = document.getElementById('tutorialIcon');
+const tutorialTitle = document.getElementById('tutorialTitle');
+const tutorialDescription = document.getElementById('tutorialDescription');
+const currentStepEl = document.getElementById('currentStep');
+const totalStepsEl = document.getElementById('totalSteps');
+const tutorialPrevBtn = document.getElementById('tutorialPrev');
+const tutorialNextBtn = document.getElementById('tutorialNext');
+const tutorialSkipBtn = document.getElementById('tutorialSkip');
+
+// Initialiser le tutoriel
+function initTutorial() {
+    // Vérifier si l'utilisateur a déjà vu le tutoriel
+    const hasSeenTutorial = localStorage.getItem('hasSeenTutorial');
+
+    if (!hasSeenTutorial) {
+        // Attendre 1 seconde après le chargement de la page
+        setTimeout(() => {
+            startTutorial();
+        }, 1000);
+    }
+}
+
+function startTutorial() {
+    currentTutorialStep = 0;
+    totalStepsEl.textContent = tutorialSteps.length;
+    tutorialOverlay.classList.add('active');
+    updateTutorialStep();
+}
+
+function updateTutorialStep() {
+    const step = tutorialSteps[currentTutorialStep];
+
+    // Mettre à jour le contenu
+    tutorialIcon.innerHTML = `<i class="fas ${step.icon}"></i>`;
+    tutorialTitle.textContent = step.title;
+    tutorialDescription.textContent = step.description;
+    currentStepEl.textContent = currentTutorialStep + 1;
+
+    // Mettre à jour les boutons
+    tutorialPrevBtn.disabled = currentTutorialStep === 0;
+
+    if (currentTutorialStep === tutorialSteps.length - 1) {
+        tutorialNextBtn.innerHTML = 'C\'est parti! <i class="fas fa-check"></i>';
+    } else {
+        tutorialNextBtn.innerHTML = 'Suivant <i class="fas fa-arrow-right"></i>';
+    }
+
+    // Gérer le spotlight
+    if (step.target) {
+        const targetElement = document.querySelector(step.target);
+        if (targetElement) {
+            highlightElement(targetElement);
+        }
+    } else {
+        tutorialSpotlight.style.display = 'none';
+    }
+}
+
+function highlightElement(element) {
+    const rect = element.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+    tutorialSpotlight.style.display = 'block';
+    tutorialSpotlight.style.top = (rect.top + scrollTop - 10) + 'px';
+    tutorialSpotlight.style.left = (rect.left + scrollLeft - 10) + 'px';
+    tutorialSpotlight.style.width = (rect.width + 20) + 'px';
+    tutorialSpotlight.style.height = (rect.height + 20) + 'px';
+
+    // Scroll vers l'élément
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function nextTutorialStep() {
+    if (currentTutorialStep < tutorialSteps.length - 1) {
+        currentTutorialStep++;
+        updateTutorialStep();
+    } else {
+        endTutorial();
+    }
+}
+
+function prevTutorialStep() {
+    if (currentTutorialStep > 0) {
+        currentTutorialStep--;
+        updateTutorialStep();
+    }
+}
+
+function endTutorial() {
+    tutorialOverlay.classList.remove('active');
+    localStorage.setItem('hasSeenTutorial', 'true');
+
+    // Scroll vers le haut
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Event listeners pour le tutoriel
+if (tutorialNextBtn) {
+    tutorialNextBtn.addEventListener('click', nextTutorialStep);
+}
+
+if (tutorialPrevBtn) {
+    tutorialPrevBtn.addEventListener('click', prevTutorialStep);
+}
+
+if (tutorialSkipBtn) {
+    tutorialSkipBtn.addEventListener('click', endTutorial);
+}
+
+// Fermer le tutoriel si on clique sur l'overlay (en dehors de la carte)
+if (tutorialOverlay) {
+    tutorialOverlay.addEventListener('click', (e) => {
+        if (e.target === tutorialOverlay) {
+            endTutorial();
+        }
+    });
+}
+
+// Démarrer le tutoriel au chargement de la page
+window.addEventListener('load', () => {
+    initTutorial();
+});
+
 // === FIN DU SCRIPT ===

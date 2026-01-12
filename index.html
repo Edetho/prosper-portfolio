@@ -892,6 +892,46 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- Dark mode toggle button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorialOverlay">
+        <div class="tutorial-spotlight" id="tutorialSpotlight"></div>
+        <div class="tutorial-card" id="tutorialCard">
+            <div class="tutorial-header">
+                <div class="tutorial-progress">
+                    <span class="tutorial-step-indicator">
+                        <span class="current-step" id="currentStep">1</span> / <span id="totalSteps">5</span>
+                    </span>
+                </div>
+                <button class="tutorial-skip" id="tutorialSkip">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="tutorial-content">
+                <div class="tutorial-icon" id="tutorialIcon">
+                    <i class="fas fa-hand"></i>
+                </div>
+                <h3 class="tutorial-title" id="tutorialTitle">Bienvenue sur mon Portfolio!</h3>
+                <p class="tutorial-description" id="tutorialDescription">
+                    Salut! Moi c'est Keke Axelle, développeuse Full Stack passionnée.
+                    Laisse-moi te faire découvrir mon univers en quelques étapes!
+                </p>
+            </div>
+            <div class="tutorial-footer">
+                <button class="tutorial-btn tutorial-prev" id="tutorialPrev" disabled>
+                    <i class="fas fa-arrow-left"></i> Précédent
+                </button>
+                <button class="tutorial-btn tutorial-next" id="tutorialNext">
+                    Suivant <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="script.js"></script>
 </body>

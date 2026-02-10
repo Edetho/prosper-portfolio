@@ -1,16 +1,16 @@
 // ============================================
-// KEKE AXELLE - Portfolio JavaScript
-// Développeuse Full Stack & Conceptrice Électronique
+// Prosper SOGBEDI - Portfolio JavaScript
+// Développeur Mobile Flutter & Designer UI/UX
 // ============================================
 
 // === CONSTANTES ===
 const TYPING_SPEED = 100;
 const TYPING_DELAY = 2000;
 const TYPING_TEXTS = [
-    "Conceptrice de cartes embarquées ⚡",
-    "Développeuse Full Stack 💻",
-    "Passionnée d'IoT & Automatisation 🚀",
-    "Créatrice de solutions innovantes 💡"
+    "Développeur Mobile Flutter 📱",
+    "Designer UI/UX 🎨",
+    "Passionné d'applications cross-platform 🚀",
+    "Créateur d'interfaces intuitives 💡"
 ];
 
 // === MENU MOBILE ===
@@ -232,7 +232,7 @@ if (contactForm) {
         const message = document.getElementById('message').value;
         
         // Créer le lien mailto
-        const mailtoLink = `mailto:ramoskeke16@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        const mailtoLink = `mailto:sogbedjiprosper@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
             `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
         )}`;
         
@@ -357,7 +357,7 @@ projectCards.forEach(card => {
 });
 
 // === TÉLÉCHARGEMENT DU CV ===
-const downloadCvBtns = document.querySelectorAll('a[href*="cv_keke_axelle.pdf"]');
+const downloadCvBtns = document.querySelectorAll('a[href*="cv_prosper_sogbedi.pdf"]');
 
 downloadCvBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -377,11 +377,11 @@ document.addEventListener('keydown', (e) => {
     konamiCode.push(e.key);
     konamiCode = konamiCode.slice(-10);
     
-    if (konamiCode.join('') === konamiSequence.join('')) {
+        if (konamiCode.join('') === konamiSequence.join('')) {
         // Easter egg activé !
         document.body.style.animation = 'rainbow 3s infinite';
         setTimeout(() => {
-            alert('🎉 Easter Egg trouvé ! Tu es aussi battante que moi ! 💪✨');
+            alert('🎉 Easter Egg trouvé ! Tu es aussi passionné que moi ! 💪✨');
             document.body.style.animation = '';
         }, 100);
     }
@@ -415,9 +415,9 @@ images.forEach(img => imageObserver.observe(img));
 
 // === CHARGEMENT INITIAL ===
 window.addEventListener('load', () => {
-    console.log('🚀 Portfolio de KEKE AXELLE chargé avec succès !');
-    console.log('💻 Développeuse Full Stack & Conceptrice Électronique');
-    console.log('✨ Passionnée par l\'innovation et l\'excellence technique');
+    console.log('🚀 Portfolio de Prosper SOGBEDI chargé avec succès !');
+    console.log('📱 Développeur Mobile Flutter & Designer UI/UX');
+    console.log('✨ Passionné par les apps mobiles et l\'expérience utilisateur');
     
     // Animer le logo
     const logo = document.querySelector('.logo');
@@ -446,11 +446,11 @@ if (isMobile) {
 }
 
 // === MESSAGE DE BIENVENUE DANS LA CONSOLE ===
-console.log('%c💻 Portfolio de KEKE AXELLE 💻', 'color: #FF6B35; font-size: 20px; font-weight: bold;');
-console.log('%c🚀 Développeuse Full Stack & Conceptrice Électronique', 'color: #6C63FF; font-size: 14px;');
-console.log('%c✨ Passionnée par l\'innovation technologique et l\'automatisation', 'color: #FF006E; font-size: 12px;');
-console.log('%c📧 Contact: ramoskeke16@gmail.com', 'color: #00F5A0; font-size: 12px;');
-console.log('%c🔗 GitHub: https://github.com/Rameaux13', 'color: #00F5A0; font-size: 12px;');
+console.log('%c📱 Portfolio de Prosper SOGBEDI 💻', 'color: #FF6B35; font-size: 20px; font-weight: bold;');
+console.log('%c🚀 Développeur Mobile Flutter & Designer UI/UX', 'color: #6C63FF; font-size: 14px;');
+console.log('%c✨ Passionné par les applications mobiles et l\'expérience utilisateur', 'color: #FF006E; font-size: 12px;');
+console.log('%c📧 Contact: sogbedjiprosper@gmail.com', 'color: #00F5A0; font-size: 12px;');
+console.log('%c🔗 GitHub: https://github.com/Edetho', 'color: #00F5A0; font-size: 12px;');
 
 // === DARK MODE TOGGLE ===
 const themeToggle = document.getElementById('themeToggle');
@@ -510,13 +510,13 @@ const tutorialSteps = [
     {
         icon: 'fa-hand',
         title: 'Bienvenue sur mon Portfolio!',
-        description: 'Salut! Moi c\'est Keke Axelle, développeuse Full Stack passionnée. Laisse-moi te faire découvrir mon univers en quelques étapes!',
+        description: 'Salut! Moi c\'est Prosper SOGBEDI, développeur Mobile Flutter et Designer UI/UX passionné. Laisse-moi te faire découvrir mon univers en quelques étapes!',
         target: null
     },
     {
         icon: 'fa-user-circle',
         title: 'Découvre mon parcours',
-        description: 'Ici tu trouveras tout sur moi : mon double ADN électronique + développement, mes valeurs et ce qui me passionne vraiment!',
+        description: 'Ici tu trouveras tout sur moi : mon double ADN Flutter Mobile + Design UI/UX, mes valeurs et ce qui me passionne vraiment!',
         target: '#apropos'
     },
     {
@@ -528,7 +528,7 @@ const tutorialSteps = [
     {
         icon: 'fa-rocket',
         title: 'Mes projets innovants',
-        description: 'Du web au desktop, de l\'électronique à l\'IoT... Découvre mes créations et mes solutions complètes!',
+        description: 'Du mobile au web, en passant par le DevOps... Découvre mes créations et mes solutions complètes!',
         target: '#projets'
     },
     {

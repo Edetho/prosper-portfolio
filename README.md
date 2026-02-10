@@ -1,17 +1,16 @@
-# Clone du Portfolio KEKE AXELLE
+# Portfolio de Prosper SOGBEDJI
 
-Clone fidèle du portfolio [https://rameaux13.github.io/portfolio_1/](https://rameaux13.github.io/portfolio_1/).
-
+Réalisation du portfolio 
 ## Structure du projet
 
 ```
-portfolio-clone/
+prosper-portfolio/
 ├── index.html          # Page principale
 ├── style.css           # Styles (mode clair/sombre, animations)
 ├── script.js           # Interactivité (typing, filtres, tutoriel)
 ├── photo de moi.jpg    # Photo de profil
 ├── assets/
-│   ├── cv_keke_axelle.pdf
+│   ├── cv_prosper_sogbzdji.pdf
 │   ├── logo-cdcci.png
 │   └── logo-worldskills.png
 └── README.md
@@ -36,4 +35,4 @@ portfolio-clone/
 - Easter egg (code Konami : ↑↑↓↓←→←→BA)
 
 ---
-*Clone réalisé le 10 février 2025 - Source : [Rameaux13/portfolio_1](https://github.com/Rameaux13/portfolio_1)*
+*Réalisé le 10 février 2025
